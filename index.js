@@ -2,8 +2,9 @@ var getDrums=document.querySelectorAll("button.drum");
 for(var i=0;i<getDrums.length;i++){
     getDrums[i].addEventListener("click",function (){
         var getInnerHTML=this.textContent;
-       
+       buttonAnimation(getInnerHTML);
         makeSound(getInnerHTML);
+        
        
     });
 
@@ -12,6 +13,7 @@ document.addEventListener("keypress",function (event){
 makeSound(event.key);
 })
 function makeSound(key){
+    buttonAnimation(key);
     switch (key) {
         case "w":  var mp3=new Audio("sounds/tom-1.mp3");
                    mp3.play();
@@ -37,4 +39,10 @@ function makeSound(key){
         default:console.log("Something went wrong in switch Statement");
             break;
     }
+}
+function buttonAnimation(currentKey){
+var active=document.queryselector("."+currentKey);
+    active.classList.add("pressed");
+    setTimeout(funtion(){active.classlist.remove("pressed")},100);
+
 }
