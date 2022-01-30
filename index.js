@@ -11,9 +11,10 @@ for(var i=0;i<getDrums.length;i++){
 }
 document.addEventListener("keypress",function (event){
 makeSound(event.key);
+     buttonAnimation(event.key);
 })
 function makeSound(key){
-    buttonAnimation(key);
+   
     switch (key) {
         case "w":  var mp3=new Audio("sounds/tom-1.mp3");
                    mp3.play();
@@ -43,6 +44,6 @@ function makeSound(key){
 function buttonAnimation(currentKey){
 var active=document.queryselector("."+currentKey);
     active.classList.add("pressed");
-    setTimeout(funtion(){active.classlist.remove("pressed")},100);
+    setTimeout(funtion(){active.classlist.remove("pressed");},100);
 
 }
